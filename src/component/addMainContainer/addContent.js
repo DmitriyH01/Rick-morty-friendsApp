@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
 function AddMainContainer() {
   return (
@@ -6,8 +6,8 @@ function AddMainContainer() {
       <main className="content">
         <ul className="content__list">
           <li className="content__list__item">
-            <h2></h2>
-            <img></img>
+            <h2>Engine</h2>
+            <img alt="true"></img>
             <span></span>
           </li>
         </ul>

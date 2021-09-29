@@ -1,1 +1,1 @@
-export { default } from "./storage";
+export { store, defaultState } from "./storage";
