@@ -12,8 +12,6 @@ function reducer(state = defaultState, action) {
   switch (action.type) {
     case GET_USERS:
       return { ...state, users: [...state.users, ...action.payload] };
-    case "GET_CASH":
-      return { ...state, users: state.users - action.payload };
 
     default:
       return state;
@@ -26,4 +24,3 @@ export const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-// export default store, defaultState ;

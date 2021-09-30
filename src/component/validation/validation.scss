@@ -1,0 +1,10 @@
+.validation_box {
+  height: 400px;
+  width: 600px;
+  display: grid;
+  justify-content: center;
+  &__form {
+    display: grid;
+    padding-top: 40px;
+  }
+}
