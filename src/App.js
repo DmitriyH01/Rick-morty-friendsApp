@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Fragment, useEffect, useState } from "react";
-import CreateHeader from "./component/createHeader";
+import CreateHeader from "./component/addHeader";
 import AddMainContainer from "./component/addMainContainer";
 import AddValidationWindow from "./component/validation";
 import AddFooter from "./component/addFooter";
@@ -20,15 +20,16 @@ function App() {
   const [formValid, setFormValid] = useState(false);
 
   const dispatch = useDispatch();
-  const characters = useSelector((state) => state.users);
+  const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    if (characters.length === 0) {
+    if (users.length === 0) {
       dispatch(fetchUsers());
     }
   });
 
-  if (form) {
+  if (!form) {
+    //turn off form over there
     return (
       <AddValidationWindow
         email={email}
@@ -53,7 +54,7 @@ function App() {
   return (
     <Fragment>
       <CreateHeader />
-      <AddMainContainer characters={characters} />
+      <AddMainContainer users={users} />
       <AddFooter />
     </Fragment>
   );

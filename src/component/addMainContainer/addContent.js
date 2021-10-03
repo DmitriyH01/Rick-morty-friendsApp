@@ -1,17 +1,23 @@
 import { Fragment } from "react";
 
-function AddMainContainer() {
+function AddMainContainer({ users }) {
   return (
     <Fragment>
       <main className="content">
         <ul className="content__list">
-          <li className="content__list__item">
-            <h2>Engine</h2>
-            <img alt="true"></img>
-            <span></span>
-          </li>
+          {users.map((user) => {
+            console.log(user);
+            return (
+              <Fragment>
+                <li key={user.id} className="content__list__item">
+                  <h2>{user.name}</h2>
+                  <img alt="" src={user.image}></img>
+                </li>
+              </Fragment>
+            );
+          })}
         </ul>
-        <aside className="content__aside"></aside>
+        <section className="content__filters"></section>
       </main>
     </Fragment>
   );

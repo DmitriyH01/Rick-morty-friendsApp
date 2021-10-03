@@ -1,38 +1,20 @@
 @import "./component/validation/validation.scss";
-* {
-  max-width: 1800px;
+@import "./component/addMainContainer/mainContent.scss";
+@import "./component/addHeader/header.scss";
+@import "./component/addFooter/footer.scss";
+
+body {
   margin: 0 auto;
+  width: 3012px;
+  height: 1784px;
+  background-image: url(../src/images/background.jpg);
 }
 
-.header {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  background-color: bisque;
-  &__navigation {
-    &__list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-}
-// main content
-.content {
-  height: 700px;
-  display: grid;
-  grid-template-areas: "aside content";
-  grid-template-columns: 1fr 5fr;
-  background-color: darkgray;
-  &__aside {
-    grid-area: aside;
-  }
-
-  &__list {
-    grid-area: content;
-    background-color: aquamarine;
-  }
+#root {
 }
 
-.footer {
-  height: 150px;
-  background-color: rosybrown;
+@media (max-width: 1920px) {
+  body {
+    width: 1920px;
+  }
 }
