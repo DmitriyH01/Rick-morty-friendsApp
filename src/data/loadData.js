@@ -1,4 +1,4 @@
-import { getUsersFromApi } from "../storage/storage";
+import { getUsersFromApi } from "../storage";
 
 export function fetchUsers() {
   const url = " https://rickandmortyapi.com/api/character";

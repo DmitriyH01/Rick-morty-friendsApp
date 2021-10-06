@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Fragment, useEffect, useState } from "react";
 import CreateHeader from "./component/addHeader";
-import AddMainContainer from "./component/addMainContainer";
+import AddMainContainer from "./component/addMainContent";
 import AddValidationWindow from "./component/validation";
 import AddFooter from "./component/addFooter";
 import { useDispatch, useSelector } from "react-redux";
@@ -54,7 +54,7 @@ function App() {
   return (
     <Fragment>
       <CreateHeader />
-      <AddMainContainer users={users} />
+      <AddMainContainer users={users} dispatch={dispatch} />
       <AddFooter />
     </Fragment>
   );

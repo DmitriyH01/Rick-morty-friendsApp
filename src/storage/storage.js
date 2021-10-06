@@ -3,8 +3,10 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const GET_USERS = "GET_USERS";
+const SORT_ASC = "SORT_ASC";
 
 export const defaultState = {
+  filters: ["Asc", "Dsc", "Species", "Gender", "Status", "Reset"],
   users: [],
 };
 
@@ -12,6 +14,8 @@ function reducer(state = defaultState, action) {
   switch (action.type) {
     case GET_USERS:
       return { ...state, users: [...state.users, ...action.payload] };
+    case SORT_ASC:
+      return { users: [...action.payload] };
 
     default:
       return state;
@@ -19,6 +23,7 @@ function reducer(state = defaultState, action) {
 }
 
 export const getUsersFromApi = (payload) => ({ type: GET_USERS, payload });
+export const sortUsers = (payload) => ({ type: SORT_ASC, payload });
 
 export const store = createStore(
   reducer,

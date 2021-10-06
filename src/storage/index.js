@@ -1,1 +1,1 @@
-export { store, defaultState } from "./storage";
+export { store, defaultState,getUsersFromApi,sortUsers } from "./storage";
