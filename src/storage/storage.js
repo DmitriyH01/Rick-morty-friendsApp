@@ -4,6 +4,7 @@ import thunk from "redux-thunk";
 
 const GET_USERS = "GET_USERS";
 const SORT_ASC = "SORT_ASC";
+const SORT_SPECIES = "SORT_SPECIES";
 
 export const defaultState = {
   filters: ["Asc", "Dsc", "Species", "Gender", "Status", "Reset"],
@@ -16,6 +17,8 @@ function reducer(state = defaultState, action) {
       return { ...state, users: [...state.users, ...action.payload] };
     case SORT_ASC:
       return { users: [...action.payload] };
+    case SORT_SPECIES:
+      return { users: [...action.payload] };
 
     default:
       return state;
@@ -23,7 +26,11 @@ function reducer(state = defaultState, action) {
 }
 
 export const getUsersFromApi = (payload) => ({ type: GET_USERS, payload });
-export const sortUsers = (payload) => ({ type: SORT_ASC, payload });
+export const sortUsersByAlphabet = (payload) => ({ type: SORT_ASC, payload });
+export const sortUsersBySpecies = (payload) => ({
+  type: SORT_SPECIES,
+  payload,
+});
 
 export const store = createStore(
   reducer,

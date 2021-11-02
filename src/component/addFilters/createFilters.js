@@ -1,9 +1,10 @@
 import { Fragment, useState } from "react";
 import { defaultState } from "../../storage";
-import { sortUsers } from "../../storage";
+import { sortUsersByAlphabet, sortUsersBySpecies } from "../../storage";
 
 function CreateFilters({ users, dispatch }) {
-  const [checked, setChecked] = useState(false);
+  // const [ifChecked, setChecked] = useState(false);
+  const ifChecked = false;
   return (
     <Fragment>
       <input
@@ -22,7 +23,13 @@ function CreateFilters({ users, dispatch }) {
               onChange={(e) => filteredUsers(e.target, users, dispatch)}
             >
               <label htmlFor={item}>{item}</label>
-              <input type="radio" id={item} />
+              <input
+                onChange={(e) => {
+                  e.target.checked = ifChecked;
+                }} //wrong work - fix later
+                type="radio"
+                id={item}
+              />
             </li>
           );
         })}
@@ -31,11 +38,12 @@ function CreateFilters({ users, dispatch }) {
   );
 }
 
-const compareNames = (firstUsers, secondUsers) => {
-  if (firstUsers.name > secondUsers.name) {
+const compareArguments = (firstUsers, secondUsers, sortValue) => {
+  console.log(firstUsers[sortValue]);
+  if (firstUsers[sortValue] > secondUsers[sortValue]) {
     return 1;
   }
-  if (firstUsers.name < secondUsers.name) {
+  if (firstUsers[sortValue] < secondUsers[sortValue]) {
     return -1;
   }
   return 0;
@@ -44,7 +52,25 @@ const compareNames = (firstUsers, secondUsers) => {
 const filteredUsers = (target, users, dispatch) => {
   switch (target.id) {
     case "Asc":
-      dispatch(sortUsers(users.sort((a, b) => compareNames(a, b))));
+      dispatch(
+        sortUsersByAlphabet(
+          users.sort((a, b) => compareArguments(a, b, "name"))
+        )
+      );
+      break;
+    case "Dsc":
+      dispatch(
+        sortUsersByAlphabet(
+          users.sort((a, b) => compareArguments(b, a, "name"))
+        )
+      );
+      break;
+    case "Species":
+      dispatch(
+        sortUsersBySpecies(
+          users.sort((a, b) => compareArguments(a, b, "species"))
+        )
+      );
       break;
 
     default:
