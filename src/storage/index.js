@@ -1,7 +1,13 @@
+export const storage = {
+  filters: ["Asc", "Dsc", "Species", "Gender", "Status", "Reset"],
+};
 export {
   store,
   defaultState,
   getUsersFromApi,
-  sortUsersByAlphabet,
+  sortUsersAsc,
+  sortUsersDsc,
   sortUsersBySpecies,
-} from "./storage";
+  sortUsersByGender,
+  sortUsersByStatus,
+} from "./usersReducer";

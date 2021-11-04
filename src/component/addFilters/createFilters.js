@@ -1,6 +1,12 @@
 import { Fragment, useState } from "react";
-import { defaultState } from "../../storage";
-import { sortUsersByAlphabet, sortUsersBySpecies } from "../../storage";
+import {
+  storage,
+  sortUsersAsc,
+  sortUsersDsc,
+  sortUsersBySpecies,
+  sortUsersByGender,
+  sortUsersByStatus,
+} from "../../storage";
 
 function CreateFilters({ users, dispatch }) {
   // const [ifChecked, setChecked] = useState(false);
@@ -15,7 +21,7 @@ function CreateFilters({ users, dispatch }) {
       />
 
       <ul id="filters_menu" className="content__filters__list">
-        {defaultState.filters.map((item) => {
+        {storage.filters.map((item) => {
           return (
             <li
               key={item}
@@ -53,22 +59,32 @@ const filteredUsers = (target, users, dispatch) => {
   switch (target.id) {
     case "Asc":
       dispatch(
-        sortUsersByAlphabet(
-          users.sort((a, b) => compareArguments(a, b, "name"))
-        )
+        sortUsersAsc(users.sort((a, b) => compareArguments(a, b, "name")))
       );
       break;
     case "Dsc":
       dispatch(
-        sortUsersByAlphabet(
-          users.sort((a, b) => compareArguments(b, a, "name"))
-        )
+        sortUsersDsc(users.sort((a, b) => compareArguments(b, a, "name")))
       );
       break;
     case "Species":
       dispatch(
         sortUsersBySpecies(
           users.sort((a, b) => compareArguments(a, b, "species"))
+        )
+      );
+      break;
+    case "Gender":
+      dispatch(
+        sortUsersByGender(
+          users.sort((a, b) => compareArguments(a, b, "gender"))
+        )
+      );
+      break;
+    case "Status":
+      dispatch(
+        sortUsersByStatus(
+          users.sort((a, b) => compareArguments(a, b, "status"))
         )
       );
       break;
