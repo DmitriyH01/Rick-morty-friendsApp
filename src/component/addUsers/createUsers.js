@@ -5,7 +5,6 @@ function createUsers(users) {
     <Fragment key={user.id}>
       <li key={user.id} className="content__list__item">
         <h2>{user.name}</h2>
-        {console.log(user)}
         <img alt="" src={user.image}></img>
       </li>
     </Fragment>

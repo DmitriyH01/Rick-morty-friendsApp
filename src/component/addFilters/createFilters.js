@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import {
   storage,
   sortUsersAsc,
@@ -6,10 +6,10 @@ import {
   sortUsersBySpecies,
   sortUsersByGender,
   sortUsersByStatus,
+  reset,
 } from "../../storage";
 
 function CreateFilters({ users, dispatch }) {
-  // const [ifChecked, setChecked] = useState(false);
   const ifChecked = false;
   return (
     <Fragment>
@@ -45,7 +45,6 @@ function CreateFilters({ users, dispatch }) {
 }
 
 const compareArguments = (firstUsers, secondUsers, sortValue) => {
-  console.log(firstUsers[sortValue]);
   if (firstUsers[sortValue] > secondUsers[sortValue]) {
     return 1;
   }
@@ -87,6 +86,9 @@ const filteredUsers = (target, users, dispatch) => {
           users.sort((a, b) => compareArguments(a, b, "status"))
         )
       );
+      break;
+    case "Reset":
+      dispatch(reset(storage.defaultUsers));
       break;
 
     default:
