@@ -23,10 +23,8 @@ function App() {
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    if (users.length === 0) {
-      dispatch(fetchUsers());
-    }
-  });
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   if (!form) {
     //turn off form over there

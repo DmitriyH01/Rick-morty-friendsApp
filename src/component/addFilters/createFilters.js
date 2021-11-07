@@ -10,7 +10,6 @@ import {
 } from "../../storage";
 
 function CreateFilters({ users, dispatch }) {
-  const ifChecked = false;
   return (
     <Fragment>
       <input
@@ -23,19 +22,15 @@ function CreateFilters({ users, dispatch }) {
       <ul id="filters_menu" className="content__filters__list">
         {storage.filters.map((item) => {
           return (
-            <li
-              key={item}
-              id={item}
-              onChange={(e) => filteredUsers(e.target, users, dispatch)}
-            >
-              <label htmlFor={item}>{item}</label>
-              <input
-                onChange={(e) => {
-                  e.target.checked = ifChecked;
-                }} //wrong work - fix later
-                type="radio"
+            <li key={item} className="content__filters__list__item">
+              <label
                 id={item}
-              />
+                htmlFor={item}
+                onClick={(e) => filteredUsers(e.target, users, dispatch)}
+              >
+                {item}
+              </label>
+              <input type="radio" id={item} />
             </li>
           );
         })}
