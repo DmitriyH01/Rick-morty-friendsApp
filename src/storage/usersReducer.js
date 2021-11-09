@@ -3,6 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const GET_USERS = "GET_USERS";
+const GET_NEXT_USERS = "GET_NEXT_USERS";
 const SORT_ASC = "SORT_ASC";
 const SORT_DSC = "SORT_DSC";
 const SORT_SPECIES = "SORT_SPECIES";
@@ -17,6 +18,11 @@ export const defaultState = {
 function reducer(state = defaultState, action) {
   switch (action.type) {
     case GET_USERS:
+      return {
+        ...state,
+        users: [...state.users, ...action.payload],
+      };
+    case GET_NEXT_USERS:
       return {
         ...state,
         users: [...state.users, ...action.payload],
@@ -39,6 +45,10 @@ function reducer(state = defaultState, action) {
 }
 
 export const getUsersFromApi = (payload) => ({ type: GET_USERS, payload });
+export const getNextUsersFromApi = (payload) => ({
+  type: GET_NEXT_USERS,
+  payload,
+});
 export const sortUsersAsc = (payload) => ({ type: SORT_ASC, payload });
 export const sortUsersDsc = (payload) => ({ type: SORT_DSC, payload });
 export const sortUsersBySpecies = (payload) => ({

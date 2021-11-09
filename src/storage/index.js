@@ -2,6 +2,7 @@ export {
   store,
   defaultState,
   getUsersFromApi,
+  getNextUsersFromApi,
   sortUsersAsc,
   sortUsersDsc,
   sortUsersBySpecies,

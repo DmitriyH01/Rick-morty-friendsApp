@@ -5,7 +5,7 @@ import AddMainContainer from "./component/addMainContent";
 import AddValidationWindow from "./component/validation";
 import AddFooter from "./component/addFooter";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "./data/loadData";
+import { fetchUsers, selectedUrl } from "./data/loadData";
 
 function App() {
   const [email, setEmail] = useState("");
@@ -23,7 +23,7 @@ function App() {
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(fetchUsers(selectedUrl.startUsers));
   }, [dispatch]);
 
   if (!form) {
