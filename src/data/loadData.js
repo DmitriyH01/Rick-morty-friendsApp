@@ -1,8 +1,8 @@
 import { getUsersFromApi, getNextUsersFromApi, storage } from "../storage";
 
 export const selectedUrl = {
-  startUsers: " https://rickandmortyapi.com/api/character",
-  nextUsers: "",
+  firstPageUsers: "https://rickandmortyapi.com/api/character",
+  nextPageUsers: "",
 };
 
 export function fetchUsers(url) {
@@ -11,11 +11,11 @@ export function fetchUsers(url) {
       .then((response) => response.json())
       .then((data) => {
         dispatch(getUsersFromApi(data.results));
-        selectedUrl.nextUsers = data.info.next;
+        selectedUrl.nextPageUsers = data.info.next;
         return data;
       })
-
-      .then((data) => (storage.defaultUsers = data.results));
+      .then((data) => (storage.defaultUsers = data.results)); //maybe something else idea for reset users?
+    //if realize "simplest reset" - can do one fetch Function, not two.
   };
 }
 
@@ -25,7 +25,7 @@ export function fetchNextUsers(url) {
       .then((response) => response.json())
       .then((data) => {
         dispatch(getNextUsersFromApi(data.results));
-        selectedUrl.nextUsers = data.info.next;
+        selectedUrl.nextPageUsers = data.info.next;
       });
   };
 }

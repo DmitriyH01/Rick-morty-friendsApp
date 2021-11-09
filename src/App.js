@@ -23,7 +23,7 @@ function App() {
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispatch(fetchUsers(selectedUrl.startUsers));
+    dispatch(fetchUsers(selectedUrl.firstPageUsers));
   }, [dispatch]);
 
   if (!form) {
