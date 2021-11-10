@@ -5,16 +5,10 @@
 
 body {
   margin: 0 auto;
-  width: 3012px;
-  height: 1784px;
+  max-width: 3012px;
+  max-height: 1784px;
   background-image: url(../src/images/background.jpg);
-}
-
-#root {
-}
-
-@media (max-width: 1920px) {
-  body {
-    width: 1920px;
-  }
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }

@@ -13,6 +13,7 @@ function CreateFilters({ users, dispatch }) {
   return (
     <Fragment>
       <input
+        onChange={(e) => searchUser(e.target.value, users, dispatch)}
         className="content__filters__search"
         type="text"
         name="search"
@@ -26,7 +27,7 @@ function CreateFilters({ users, dispatch }) {
               <label
                 id={item}
                 htmlFor={item}
-                onClick={(e) => filteredUsers(e.target, users, dispatch)}
+                onClick={(e) => filterUsers(e.target, users, dispatch)}
               >
                 {item}
               </label>
@@ -49,7 +50,7 @@ const compareArguments = (firstUsers, secondUsers, sortValue) => {
   return 0;
 };
 
-const filteredUsers = (target, users, dispatch) => {
+const filterUsers = (target, users, dispatch) => {
   switch (target.id) {
     case "Asc":
       dispatch(
@@ -90,5 +91,9 @@ const filteredUsers = (target, users, dispatch) => {
       return users;
   }
 };
+
+function searchUser(value, users, dispatch) {
+  console.log(value);
+}
 
 export default CreateFilters;
