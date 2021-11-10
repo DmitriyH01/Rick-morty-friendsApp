@@ -63,28 +63,10 @@ export const filterUsers = (target, users, dispatch) => {
 
 export function searchUser(value, users, dispatch) {
   const search = value.toLowerCase();
-  // console.log(users.filter((elem) => elem.name.toLowerCase().match(search)));
-  dispatch(
-    findUser(users.filter((elem) => elem.name.toLowerCase().match(search)))
-  );
 
-  // const names = giveAllNames(users);
-  // const searchedName = checkNameExist(names, value);
-
-  // if (names.includes(searchedName)) {
-
-  //   dispatch(findUser(returnUser(users, searchedName)));
-  // }
+  dispatch(findUser(checkName(users, search)));
 }
 
-function giveAllNames(users) {
-  return users.map((user) => user.name);
-}
-
-function checkName(names, value) {
-  return names.find((name) => name.toLowerCase() === value);
-}
-
-function returnUser(users, name) {
-  return users.find((user) => user.name === name);
+function checkName(users, value) {
+  return users.filter((user) => user.name.toLowerCase().match(value));
 }
