@@ -7,7 +7,7 @@
 - Redux use;
 
 ---
-## Why I did this progect?
+## Why I did this project?
 
 ### I mastered:
 - JavaScript
