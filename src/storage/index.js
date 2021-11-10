@@ -9,6 +9,7 @@ export {
   sortUsersByGender,
   sortUsersByStatus,
   reset,
+  findUser,
 } from "./usersReducer";
 
 export { storage } from "./dataStorage";

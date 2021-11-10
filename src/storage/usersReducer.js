@@ -10,6 +10,7 @@ const SORT_SPECIES = "SORT_SPECIES";
 const SORT_GENDER = "SORT_GENDER";
 const SORT_STATUS = "SORT_STATUS";
 const RESET = "RESET";
+const FIND = "FIND";
 
 export const defaultState = {
   users: [],
@@ -27,6 +28,8 @@ function reducer(state = defaultState, action) {
         ...state,
         users: [...state.users, ...action.payload],
       };
+    case FIND:
+      return { users: [...action.payload] };
     case SORT_ASC:
       return { users: [...action.payload] };
     case SORT_DSC:
@@ -65,6 +68,10 @@ export const sortUsersByStatus = (payload) => ({
 });
 export const reset = (payload) => ({
   type: RESET,
+  payload,
+});
+export const findUser = (payload) => ({
+  type: FIND,
   payload,
 });
 
