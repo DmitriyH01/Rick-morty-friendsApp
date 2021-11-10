@@ -2,16 +2,18 @@
 
 ## About project
 
--simulate a simple friend search site, with clickable cards;
+- simulate a simple friend search site, with clickable cards;
+- React use;
+- Redux use;
 
 ---
 ## Why I did this progect?
 
-###I mastered:
+### I mastered:
 - JavaScript
 - fetch API
 - React, React hooks
-- Redux
+- Redux,reducer,redux-thunk
 
 ## Available Scripts
 
