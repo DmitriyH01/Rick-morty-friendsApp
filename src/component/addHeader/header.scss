@@ -1,15 +1,29 @@
 .header {
-  height: 150px;
   display: grid;
   grid-template-columns: 150px 1fr;
   background: rgba(0, 0, 0, 0.4);
+
   &__logo {
     max-height: 150px;
   }
+
   &__navigation {
+    display: grid;
+    align-items: center;
+
     &__list {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      padding-inline-start: 15em;
+
+      &__item {
+        font-size: 40px;
+        font-weight: bolder;
+        color: rgb(23, 175, 245);
+        list-style-type: none;
+        text-align: center;
+        cursor: not-allowed;
+      }
     }
   }
 }

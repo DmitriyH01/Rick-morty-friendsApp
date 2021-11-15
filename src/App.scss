@@ -6,9 +6,14 @@
 body {
   margin: 0 auto;
   max-width: 3012px;
-  max-height: 1784px;
   background-image: url(../src/images/background.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+
+  & #root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 15% 60% 25%;
+  }
 }

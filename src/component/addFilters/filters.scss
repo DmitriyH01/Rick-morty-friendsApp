@@ -1,7 +1,10 @@
 .content__filters {
+  max-height: 700px;
+
   &__search {
-    height: 30px;
+    height: 45px;
     margin: 5px;
+    font-size: 20px;
   }
   &__list {
     display: grid;
@@ -12,14 +15,14 @@
 
     &__item {
       display: grid;
-      font-size: 30px;
+      font-size: 34px;
       justify-content: center;
 
       & label {
         cursor: pointer;
 
         &:active {
-          font-size: 34px;
+          font-size: 38px;
         }
         &:hover {
           color: red;

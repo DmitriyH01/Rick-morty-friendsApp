@@ -4,7 +4,7 @@ function AddFooter() {
   return (
     <Fragment>
       <footer className="footer">
-        <div>
+        <div className="footer__iconLinks">
           Icons made by{" "}
           <a href="https://www.freepik.com" title="Freepik">
             Freepik

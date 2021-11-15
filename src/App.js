@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchUsers(selectedUrl.firstPageUsers));
-  }, [dispatch]);
+  }, []);
 
   if (!form) {
     //turn off form over there
