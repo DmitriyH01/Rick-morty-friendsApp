@@ -63,7 +63,6 @@ export const filterUsers = (target, users, dispatch) => {
 
 export function searchUser(value, users, dispatch) {
   const search = value.toLowerCase();
-
   dispatch(findUser(checkName(users, search)));
 }
 
